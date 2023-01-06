@@ -1,8 +1,8 @@
-const express = require("express");
+import express, {Express} from "express";
 const dotenv = require("dotenv").config();
 const port = process.env.PORT || 5000;
 
-const app = express();
+const app: Express = express();
 
 app.use("/openai", require("./routes/openaiRoute"))
 
