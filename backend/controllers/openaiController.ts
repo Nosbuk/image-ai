@@ -25,16 +25,10 @@ export const generateImage = async (req: Request, res: Response) => {
       data: imageURL,
     });
   } catch (error: any) {
-    // check if correct error type correct
-    if (error.response) {
-      console.log(error.response.status);
-      console.log(error.response.data);
-    } else {
-      console.log(error.message);
-    }
+    console.log(error)
     res.status(400).json({
       succcess: false,
-      error: "Image could not be generated",
+      error: error.response.data.error.message || "Your image cannot be generated",
     });
   }
 };
